@@ -9,7 +9,11 @@ Pixabay for the girl image (link at end)")
 
 Using Ren'Py 7.4 shader to outline displayables.
 
-This is a pretty 
+This is a pretty simple shader approach for adding an outline to any displayable.  
+With the `mesh` boolean (set to True in the transform) it can work on LayeredImages, Composites and even Live2D models as well as normal images and text glyphs.  
+It also allows setting a `mesh_pad` boolean which, if True, will pad out the surface adding extra room to draw the outline (so you do not have to create new images with extra transparency around them).  
+
+It uses the GPU to do loads of calculations in parralel, one for each non opaque pixel and works out the distance to the nearest opaque pixel. Once it has that distance it can calculate the colour to draw the pixel by using a variety of settings.
 
 ```py
 ...
