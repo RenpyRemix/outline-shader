@@ -36,7 +36,9 @@ Did you spot the
 # line 74 "outline_shader.rpy "
 ```
 bit?  
-Adding a line like that is really helpful for debugging as it can allow any reported error to also indicate the filename and line.
+Adding a line like that is really helpful for debugging as it can allow any reported error to also indicate the filename and line. Obviously you do have to write the actual line number there... Then if an error occurs 10 lines further down it would say `Error (outline_shader.rpy 84)` or somesuch, pointing you to where you need look.
+
+
 
 
 ### Navigation:
