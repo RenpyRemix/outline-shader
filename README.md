@@ -28,7 +28,7 @@ Alternatively, you could even write transforms especially for the buttons and in
     
 The notes in the rpy file should pretty much cover the basics of how the system is used.
 
-For a more indepth explanation, feel free to read the [System Overview](https://github.com/RenpyRemix/outline-shader/blob/main/OVERVIEW.md)  
+For a more indepth explanation, feel free to read the [System Overview](https://github.com/RenpyRemix/outline-shader/blob/main/system_overview.md)  
 (which covers how the shader works internally as well as some hints for writing shader code in Ren'Py)
 
 
