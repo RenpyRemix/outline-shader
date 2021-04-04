@@ -36,3 +36,10 @@ For a more indepth explanation, feel free to read the [System Overview](https://
 
 
 Sprite used in example image: https://pixabay.com/vectors/girl-face-startled-portrait-312497/
+
+### Please note:
+
+The way that some parts of this approach work might not be suitable for complete beginners. As such it will likely require some knowledge of Ren'Py in order to extend it to your particular needs. 
+
+Though I have tried to explain it as simply as possible, I will not be available to help extend it unless under a paid contract.
+Basically, if you want it to do more, you are expected to know enough Ren'Py to handle that yourself (or consider paying someone)
