@@ -28,6 +28,7 @@ init python:
 ```
 Just blocks of text... variables, then vertex stuff, then fragment stuff... All just text, written in GLSL (which is similar to C, not Python)  
 
+### Useful Little Trick  
 Did you spot the 
 ```py
 
