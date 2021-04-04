@@ -1,1 +1,0 @@
-# Outline Shader - System Overview
