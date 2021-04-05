@@ -182,6 +182,9 @@ if (gl_FragColor.a < 0.98) {
 ## This is the base transform
 ## You could either use this directly and pass in parameters as wanted
 ## or make transforms (with set parameters) to then call this (like below)
+#
+## width: the width of the outline area
+## threshold: the minimum alpha level to count as opaque when finding the nearest opaque pixel
 transform outline(
         width=10.0, 
         threshold=0.95, 
