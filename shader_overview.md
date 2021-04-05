@@ -1,4 +1,4 @@
-# Outline Shader - System Overview
+# Outline Shader - Shaders Overview
 
 If you have not encountered shaders in Ren'Py yet, there is documentation [Here](https://www.renpy.org/doc/html/model.html).  
 This new features allows creation of GLSL code that is passed to the GPU to act upon a displayable. The main way of using them is to declare a shader by name within a normal transform. 
@@ -40,6 +40,7 @@ Adding a line like that is really helpful for debugging as it can allow any repo
 
 
 ## The Process (a simplified example)
+#### (Note: this does not reflect the approach used for the Outline Shader)
 
 In order to maintain some structure here, I will detail the standard process in a chronological order (that does not reflect the outline shader file).  
 
@@ -51,9 +52,7 @@ label x:
 ```
 All very straight-forward, so next our simplified transform:  
 ```py
-transform outline(
-        width=3.0, 
-        color="#FFF"):
+transform outline(width=3.0, color="#FFF"):
     mesh True
     shader "remix.simple_shadow_example"
     u_width float(width)
@@ -108,6 +107,20 @@ Our horrible little example script there wants to add a dropshadow of size `u_wi
 As we passed in the width as a pixel value we first want to determine what each pixel is as a float of the full image size. So we just divide 1.0 by how many pixels wide and divide 1.0 by how tall the image is.  
 Now we can multiply those by the passed in width to get an offset (say (0.014, 0.018)) and minus that from the position of the current pixel.  
 
+The fragment shader here is effectively running once for each pixel in the image, just is it doing loads of those similar calculations at the same time in parallel.  
+Therefore, when we use `v_tex_coord` we are getting the position of just the pixel we are working on. Our line calculating offset_pos is taking that position and moving `width` pixels left and `width` pixels upwards, calculated as two floats relative to the texture.
+
+The conditional block after that is then doing:
+```py
+if the current pixel is not opaque:
+    test the alpha level of the pixel up-and-left from current pixel
+    if that offset pixel is opaque:
+        recolour the current pixel to be the colour we set
+```
+Very basic, rather simple and not at all like the approach used in the Outline Shader.
+
+There are a huge number of resources online for learning about GLSL.  
+This page is just to give a few pointers about how they are done within Ren'Py.
     
 
 ### Navigation:
