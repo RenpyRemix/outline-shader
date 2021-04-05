@@ -184,7 +184,20 @@ if (gl_FragColor.a < 0.98) {
 ## or make transforms (with set parameters) to then call this (like below)
 #
 ## width: the width of the outline area
-## threshold: the minimum alpha level to count as opaque when finding the nearest opaque pixel
+## threshold: the minimum alpha level to count as opaque when finding 
+##            the nearest opaque pixel
+## color: the primary colour of the outline
+## far_color: secondary colour
+##            if set, this is the colour furthest from the image
+## low_color: secondary colour
+##            if set, this is the colour through the inner/outer steps
+## low_color_fade: whether to fade the primary colour into the low_color
+## step_start: proportion of the width to begin a smooth up-step at
+##             if this plus (1.0 - step_end) is less than 0.0 then no inner
+##             step will be shown
+## step_end: proportion of the width at which to begin a smooth step-down
+##           which will appear as a form of anti-aliasing
+## mesh_pad: whether to pad out the image to make extra room for the outline
 transform outline(
         width=10.0, 
         threshold=0.95, 
