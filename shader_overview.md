@@ -41,7 +41,7 @@ Adding a line like that is really helpful for debugging as it can allow any repo
 
 ## The Process (a simplified example)
 
-In order to maintain some structure here, I will detail the process in a chronological order that does not reflect the file.  
+In order to maintain some structure here, I will detail the standard process in a chronological order (that does not reflect the outline shader file).  
 
 So, let's start with a displayable shown with a transform:
 ```py
@@ -63,7 +63,7 @@ As you can see, it is very similar to normal transforms. We give it a name and p
 The differences start once we are inside...  
 Firstly we have `mesh True` which at a basic level flattens the displayable so our shader can work on it as a whole rather than running once per part of it.  
 Then we tell it the shader to use with `shader "remix.simple_shadow_example"`. Convention in shader naming is to use prefix dot name.  
-The next two lines both declare a variable to use inside the shader. Convention dictates to use `u_` prefix to denote a `uniform` value. The values of each are coerced to a format usable inside a shader, float for the width (though it could easily be int) and a four part float for colour using the `Color().rgba` property.
+The next two lines both declare a variable to use inside the shader. Here we use the `u_` prefix to denote a `uniform` value. The values of each are coerced to a format usable inside a shader, float for the width (though it could easily be int) and a four part float for colour using the `Color().rgba` property.
 
 Those variables with the `u_` prefix are now passed into the shader defined as shown at the top...
 ```py
@@ -77,7 +77,9 @@ uniform vec4 u_color;
 ```
 That names the shader and scopes the two uniforms for use inside other parts...
 
-There are also quite a few inbuilt variales that can be accessed within shaders. These cover things such as the current position, textures and texture sizes and others. These are detailed in the Ren'Py documentation.
+There are also quite a few inbuilt variales that can be accessed within shaders. These cover things such as the current position, textures and texture sizes and others. These are detailed in the Ren'Py documentation.  
+
+Within the vertex or fragment sections we would now have access to those variables
         
 
 ### Navigation:
