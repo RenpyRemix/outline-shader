@@ -73,13 +73,31 @@ init python:
         variables="""
 uniform float u_width;
 uniform vec4 u_color;
-        """,
 ```
-That names the shader and scopes the two uniforms for use inside other parts...
+That names the shader and scopes the two uniforms for use inside other parts...  
 
 There are also quite a few inbuilt variales that can be accessed within shaders. These cover things such as the current position, textures and texture sizes and others. These are detailed in the Ren'Py documentation.  
 
-Within the vertex or fragment sections we would now have access to those variables
+... in that section we also declare the inbuilt variables we want to use...
+```py
+uniform vec2 u_model_size;
+uniform sampler2D tex0;
+varying vec2 v_tex_coord;
+        """,
+```
+
+Within the vertex or fragment sections we would now have access to those variables...
+```py
+        fragment_300="""
+vec2 pixel_size = (vec2(1.) / u_model_size);
+vec2 offset_pos = v_tex_coord.xy - (vec2(u_width) * pixel_size);
+
+if (gl_FragColor.a < 0.98) {
+    if (texture2D(tex0, offset_pos).a >= 0.02) {
+        gl_FragColor = u_color;
+    }
+}
+```
         
 
 ### Navigation:
