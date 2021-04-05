@@ -14,7 +14,7 @@ With the `mesh` boolean (set to True in the transform) it can work on LayeredIma
 It also allows setting a `mesh_pad` boolean which, if True, will pad out the surface adding extra room to draw the outline (so you do not have to create new images with extra transparency around them).  
 
 It uses the GPU to do loads of calculations in parallel, one for each non opaque pixel and works out the distance to the nearest opaque pixel. Once it has that distance it can calculate the colour to draw the pixel by using a variety of settings.  
-With all these being in parralel it only takes a fraction of the time that an approach like this would require if done on the CPU. This makes it pretty acceptable to use during run-time as it should not add lag spikes, especially if mostly used for smaller images such as buttons.  
+With all these being in parallel it only takes a fraction of the time that an approach like this would require if done on the CPU. This makes it pretty acceptable to use during run-time as it should not add lag spikes, especially if mostly used for smaller images such as buttons.  
 
 The end of the rpy file has the base transform as well as a couple of example transforms that then use the base one inside them.  
 You could use them when showing images (as in the example label) using the `at` keyword to dictate a transform or use the `At()` wrapper function when defining or declaring an image.
