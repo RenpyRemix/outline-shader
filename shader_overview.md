@@ -97,8 +97,18 @@ if (gl_FragColor.a < 0.98) {
         gl_FragColor = u_color;
     }
 }
+        """)
 ```
-        
+(not really an example you would want to use in a game)
+
+Almost everything within a shader is based upon a float value between 0.0 and 1.0.  
+This includes colours (0.2, 0.6, 0.8, 1.0) rgba values rather than say "#3399CCFF" and positions (0.5, 0.5) rather than pixel (100, 100).  
+
+Our horrible little example script there wants to add a dropshadow of size `u_width` drawn in colour `u_color`.  
+As we passed in the width as a pixel value we first want to determine what each pixel is as a float of the full image size. So we just divide 1.0 by how many pixels wide and divide 1.0 by how tall the image is.  
+Now we can multiply those by the passed in width to get an offset (say (0.014, 0.018)) and minus that from the position of the current pixel.  
+
+    
 
 ### Navigation:
 
