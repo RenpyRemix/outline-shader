@@ -73,7 +73,7 @@ With this set (to something different than `color`) the outline will use a diffe
 
 #### `low_color_fade` - whether to fade the primary colour into the low_color
 This True/False boolean controls how immediate the transition is between `color` and `low_color`.  
-If you end up using these `low_` settings you might do best to tweak the actual shader itself and create a level that suits you best (as the setting is a bit clunky being just `on/off`...
+If you end up using these `low_` settings you might do best to tweak the actual shader itself and create a level that suits you best (as the setting is a bit clunky being just `on/off`)
 
 #### `step_end` - proportion of the width at which to begin a smooth step-down which will appear as a form of anti-aliasing
 To add a form of edge anti-aliasing, this value controls the point when smooth Hermite interpolation is used to reduce the alpha level of the outer edge of the outline. Pixels at a distance greater than this (as a 0.0 to 1.0 proportion of width) are reduced in opacity by using a smooth `S` curve.  
